@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components{
+  .custom-container{
+    @apply container lg:max-w-screen-lg m-auto px-5
+  }
+
+.loader {
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  display: inline-grid;
+  overflow: hidden;
+}
+.loader:before,
+.loader:after {
+  content: "Loading...";
+  grid-area: 1/1;
+  clip-path: inset(0 -200% 50%);
+  text-shadow: -10ch 0 0;
+  animation: l12 1s infinite;
+}
+.loader:after {
+  clip-path: inset(50% -200% 0%);
+  text-shadow: 10ch 0 0;
+  --s:-1;
+}
+@keyframes l12 {50%,100%{transform: translateX(calc(var(--s,1)*100%));}}
+
+.t-div::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+.t-div::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+.t-div::-webkit-scrollbar-thumb {
+  background: #3f83f8; 
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+.t-div::-webkit-scrollbar-thumb:hover {
+  background: #1b3460; 
+}
+
+
+  }
